@@ -30,7 +30,7 @@
 
 (defn network [inital-inputs]
   "Network based on miller's first example."
-  (neuron
+  (sigmoid (neuron
     (synapse [:second-layer :1]
              (neuron
                (synapse [:first-layer :1] (first inital-inputs))
@@ -42,4 +42,4 @@
     (synapse [:second-layer :3]
              (neuron
                (synapse [:first-layer :5] (first inital-inputs))
-               (synapse [:first-layer :6] (second inital-inputs))))))
+               (synapse [:first-layer :6] (second inital-inputs)))))))

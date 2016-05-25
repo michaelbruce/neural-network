@@ -5,4 +5,4 @@
 (deftest a-test
   (testing "Miller's first neural network example"
     (is
-      (network [1 1]) 1.235)))
+      (network [1 1]) 0.77)))
