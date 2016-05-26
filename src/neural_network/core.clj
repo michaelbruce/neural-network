@@ -1,3 +1,4 @@
+; lispy - ctrl-k goes to newline with scope )))
 (ns neural-network.core
   (:import (java.lang Math)))
 
@@ -12,9 +13,6 @@
                         :second-layer {:1 0.3
                                        :2 0.5
                                        :3 0.9}}))
-
-(defn exp [x n]
-  (reduce * (repeat n x)))
 
 (defn sigmoid [x]
   (/ 1 (+ 1 (java.lang.Math/exp (- x)))))
