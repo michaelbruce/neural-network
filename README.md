@@ -49,3 +49,9 @@ Test data has the output that we can compare the networks output to.
 
 Regression - under the branch of statistical modelling or data analysis.
     - process used to estimate relationships amoung variables.
+
+The Natural Exponent - like pi, e is also a useful number, it is approximately 2.7182..
+http://www.purplemath.com/modules/expofcns5.htm
+
+Sigmoid function - the idea with this function is  that something changing will not keep changing forever.
+sigmoid, meaning s-like.

@@ -1,4 +1,5 @@
-(ns neural-network.core)
+(ns neural-network.core
+  (:import (java.lang Math)))
 
 (defonce initial-inputs [1 1])
 
@@ -16,7 +17,7 @@
   (reduce * (repeat n x)))
 
 (defn sigmoid [x]
-  (/ 1 (+ 1 (exp 1 (- x)))))
+  (/ 1 (+ 1 (java.lang.Math/exp (- x)))))
 
 (defn sigmoid-prime [x]
   (- (sigmoid x)))
