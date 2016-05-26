@@ -18,10 +18,10 @@
   (/ 1 (+ 1 (java.lang.Math/exp (- x)))))
 
 (defn sigmoid-prime [x]
-  (- (sigmoid x)))
+  (* (sigmoid x) (- 1 (sigmoid x))))
 
-(defn delta-output-sum [target calculated]
-  (- target calculated))
+(defn delta-output-sum [sum target calculated]
+  (* (sigmoid-prime sum) (- target calculated)))
 
 (defn neuron [& inputs]
   "Performs a calculation given inputs"
@@ -34,7 +34,7 @@
     (* weight input)))
 
 (defn network [inital-inputs]
-  "Network based on miller's first example."
+  "Forward propogation based on miller's first example."
   (neuron
     (synapse [:second-layer :1]
              (neuron
@@ -48,3 +48,9 @@
              (neuron
                (synapse [:first-layer :5] (first inital-inputs))
                (synapse [:first-layer :6] (second inital-inputs))))))
+
+; actions
+; initial source passes value through synapse
+; synapse weighs value and passes this to neuron
+; neuron sums this with any other inputs and calculated the sigmoid of the result
+
