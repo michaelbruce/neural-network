@@ -23,9 +23,13 @@
 (defn delta-output-sum [sum target calculated]
   (* (sigmoid-prime sum) (- target calculated)))
 
+; TODO --> (defn forward-propagation [& inputs])
+
 (defn neuron [& inputs]
   "Performs a calculation given inputs"
-  (sigmoid (reduce + inputs)))
+  (let [sum (reduce + inputs)]
+    [(sigmoid sum) inputs]))
+; TODO inputs needs function applied to get new weight
 
 (defn synapse [location input]
   "Applys a weight to an input"
