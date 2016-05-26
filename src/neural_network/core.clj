@@ -18,6 +18,12 @@
 (defn sigmoid [x]
   (/ 1 (+ 1 (exp 1 (- x)))))
 
+(defn sigmoid-prime [x]
+  (- (sigmoid x)))
+
+(defn delta-output-sum [target calculated]
+  (- target calculated))
+
 (defn neuron [& inputs]
   "Performs a calculation given inputs"
   (sigmoid (reduce + inputs)))
@@ -30,7 +36,7 @@
 
 (defn network [inital-inputs]
   "Network based on miller's first example."
-  (sigmoid (neuron
+  (neuron
     (synapse [:second-layer :1]
              (neuron
                (synapse [:first-layer :1] (first inital-inputs))
@@ -42,4 +48,4 @@
     (synapse [:second-layer :3]
              (neuron
                (synapse [:first-layer :5] (first inital-inputs))
-               (synapse [:first-layer :6] (second inital-inputs)))))))
+               (synapse [:first-layer :6] (second inital-inputs))))))
